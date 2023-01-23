@@ -1,0 +1,6 @@
+/* NAVBAR STYLE */
+@media (max-width: 420px) and (orientation: portrait), (max-height: 560px){
+  .nav-item {
+  line-height:80px;
+  }
+}
