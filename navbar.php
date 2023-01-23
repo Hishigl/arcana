@@ -10,7 +10,7 @@
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mx-auto ">
             <li class="nav-item">
-            <a class="nav-link mx-2 active" aria-current="page" href="#">Home</a>
+            <a class="nav-link mx-2 active" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
             <a class="nav-link mx-2" href="#">Skincare Products</a>
