@@ -32,23 +32,23 @@ switch ($_GET['act']) {
         $arkondisitext[$rkondisi['id']] = $rkondisi['kondisi'];
       }
 
-      $sqlpkt = mysqli_query($conn, "SELECT * FROM penyakit order by kode_penyakit+0");
+      $sqlpkt = mysqli_query($conn, "SELECT * FROM tipewajah order by kode_tipewajah+0");
       while ($rpkt = mysqli_fetch_array($sqlpkt)) {
-        $arpkt[$rpkt['kode_penyakit']] = $rpkt['nama_penyakit'];
-        $ardpkt[$rpkt['kode_penyakit']] = $rpkt['det_penyakit'];
-        $arspkt[$rpkt['kode_penyakit']] = $rpkt['srn_penyakit'];
-        $argpkt[$rpkt['kode_penyakit']] = $rpkt['gambar'];
+        $arpkt[$rpkt['kode_tipewajah']] = $rpkt['nama_tipewajah'];
+        $ardpkt[$rpkt['kode_tipewajah']] = $rpkt['det_tipewajah'];
+        $arspkt[$rpkt['kode_tipewajah']] = $rpkt['srn_tipewajah'];
+        // $argpkt[$rpkt['kode_tipewajah']] = $rpkt['gambar'];
       }
 
       //print_r($arkondisitext);
 // -------- perhitungan certainty factor (CF) ---------
 // --------------------- START ------------------------
-      $sqlpenyakit = mysqli_query($conn, "SELECT * FROM penyakit order by kode_penyakit");
-      $arpenyakit = array();
-      while ($rpenyakit = mysqli_fetch_array($sqlpenyakit)) {
+      $sqltipewajah = mysqli_query($conn, "SELECT * FROM tipewajah order by kode_tipewajah");
+      $artipewajah = array();
+      while ($rtipewajah = mysqli_fetch_array($sqltipewajah)) {
         $cftotal_temp = 0;
         $cf = 0;
-        $sqlgejala = mysqli_query($conn, "SELECT * FROM basis_pengetahuan where kode_penyakit=$rpenyakit[kode_penyakit]");
+        $sqlgejala = mysqli_query($conn, "SELECT * FROM basis_pengetahuan where kode_tipewajah=$rtipewajah[kode_tipewajah]");
         $cflama = 0;
         while ($rgejala = mysqli_fetch_array($sqlgejala)) {
           $arkondisi = explode("_", $_POST['kondisi'][0]);
@@ -72,17 +72,17 @@ switch ($_GET['act']) {
           }
         }
         if ($cflama > 0) {
-          $arpenyakit += array($rpenyakit[kode_penyakit] => number_format($cflama, 4));
+          $artipewajah+= array($rtipewajah["kode_tipewajah"] => number_format($cflama, 4));
         }
       }
 
-      arsort($arpenyakit);
+      arsort($artipewajah);
 
       $inpgejala = serialize($argejala);
-      $inppenyakit = serialize($arpenyakit);
+      $inptipewajah = serialize($artipewajah);
 
       $np1 = 0;
-      foreach ($arpenyakit as $key1 => $value1) {
+      foreach ($artipewajah as $key1 => $value1) {
         $np1++;
         $idpkt1[$np1] = $key1;
         $vlpkt1[$np1] = $value1;
@@ -91,14 +91,14 @@ switch ($_GET['act']) {
       mysqli_query($conn, "INSERT INTO hasil(
                   tanggal,
                   gejala,
-                  penyakit,
+                  tipewajah,
                   hasil_id,
                   hasil_nilai
 				  ) 
 	        VALUES(
                 '$inptanggal',
                 '$inpgejala',
-                '$inppenyakit',
+                '$inptipewajah',
                 '$idpkt1[1]',
                 '$vlpkt1[1]'
 				)");
@@ -125,7 +125,7 @@ switch ($_GET['act']) {
         echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
       }
       $np = 0;
-      foreach ($arpenyakit as $key => $value) {
+      foreach ($artipewajah as $key => $value) {
         $np++;
         $idpkt[$np] = $key;
         $nmpkt[$np] = $arpkt[$key];
