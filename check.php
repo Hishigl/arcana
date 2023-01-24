@@ -9,10 +9,10 @@
 <div class="container">
 
 <?php
-switch ($_GET['act']) {
+switch (isset($_GET['act'])) {
 
   default:
-    if ($_POST['submit']) {
+    if (isset($_POST['submit'])) {
       $arcolor = array('#ffffff', '#cc66ff', '#019AFF', '#00CBFD', '#00FEFE', '#A4F804', '#FFFC00', '#FDCD01', '#FD9A01', '#FB6700');
       date_default_timezone_set("Asia/Jakarta");
       $inptanggal = date('Y-m-d H:i:s');
@@ -40,9 +40,9 @@ switch ($_GET['act']) {
         // $argpkt[$rpkt['kode_tipewajah']] = $rpkt['gambar'];
       }
 
-      //print_r($arkondisitext);
-// -------- perhitungan certainty factor (CF) ---------
-// --------------------- START ------------------------
+      print_r($arkondisitext);
+  // -------- perhitungan certainty factor (CF) ---------
+  // --------------------- START ------------------------
       $sqltipewajah = mysqli_query($conn, "SELECT * FROM tipewajah order by kode_tipewajah");
       $artipewajah = array();
       while ($rtipewajah = mysqli_fetch_array($sqltipewajah)) {
@@ -102,11 +102,11 @@ switch ($_GET['act']) {
                 '$idpkt1[1]',
                 '$vlpkt1[1]'
 				)");
-// --------------------- END -------------------------
+  // --------------------- END -------------------------
 
       echo "<div class='content'>
-	<h2 class='text text-primary'>Hasil Diagnosis &nbsp;&nbsp;<button id='print' onClick='window.print();' data-toggle='tooltip' data-placement='right' title='Klik tombol ini untuk mencetak hasil diagnosa'><i class='fa fa-print'></i> Cetak</button> </h2>
-	          <hr><table class='table table-bordered table-striped diagnosa'> 
+	  <h2 class='text text-primary'>Hasil Diagnosis &nbsp;&nbsp;<button id='print' onClick='window.print();' data-toggle='tooltip' data-placement='right' title='Klik tombol ini untuk mencetak hasil diagnosa'><i class='fa fa-print'></i> Cetak</button> </h2>
+	          <hr><table class='table table-bordered table-striped check'> 
           <th width=8%>No</th>
           <th width=10%>Kode</th>
           <th>Gejala yang dialami (keluhan)</th>
@@ -120,8 +120,8 @@ switch ($_GET['act']) {
         $sql4 = mysqli_query($conn, "SELECT * FROM gejala where kode_gejala = '$key'");
         $r4 = mysqli_fetch_array($sql4);
         echo '<tr><td>' . $ig . '</td>';
-        echo '<td>G' . str_pad($r4[kode_gejala], 2, '0', STR_PAD_LEFT) . '</td>';
-        echo '<td><span class="hasil text text-primary">' . $r4[nama_gejala] . "</span></td>";
+        echo '<td>G' . str_pad($r4["kode_gejala"], 2, '0', STR_PAD_LEFT) . '</td>';
+        echo '<td><span class="hasil text text-primary">' . $r4["nama_gejala"] . "</span></td>";
         echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
       }
       $np = 0;
@@ -137,7 +137,7 @@ switch ($_GET['act']) {
         $gambar = 'gambar/noimage.png';
       }
       echo "</table><div class='well well-small'><img class='card-img-top img-bordered-sm' style='float:right; margin-left:15px;' src='" . $gambar . "' height=200><h3>Hasil Diagnosa</h3>";
-      echo "<div class='callout callout-default'>Jenis penyakit yang diderita adalah <b><h3 class='text text-success'>" . $nmpkt[1] . "</b> / " . round($vlpkt[1], 2) . " % (" . $vlpkt[1] . ")<br></h3>";
+      echo "<div class='callout callout-default'>Jenis Tipe kulit wajah yang dimiliki dalah <b><h3 class='text text-success'>" . $nmpkt[1] . "</b> / " . round($vlpkt[1], 2) . " % (" . $vlpkt[1] . ")<br></h3>";
       echo "</div></div><div class='box box-info box-solid'><div class='box-header with-border'><h3 class='box-title'>Detail</h3></div><div class='box-body'><h4>";
       echo $ardpkt[$idpkt[1]];
       echo "</h4></div></div>
@@ -158,7 +158,7 @@ switch ($_GET['act']) {
                 <h4><i class='icon fa fa-exclamation-triangle'></i>Perhatian !</h4>
                 Silahkan memilih gejala sesuai dengan kondisi kulit wajah anda, anda dapat memilih tingkat kepastian kondisi kulit wajah anda dari pasti tidak sampai pasti ya, jika sudah tekan tombol proses (<i class='fa fa-search-plus'></i>)  di bawah untuk melihat hasil.
               </div>
-		<form name=text_form method=POST action='diagnosa' >
+		<form name=text_form method=POST action='check' >
            <table class='table table-bordered table-striped konsultasi'><tbody class='pilihkondisi'>
            <tr><th>No</th><th>Kode</th><th>Gejala</th><th width='20%'>Pilih Kondisi</th></tr>";
 
