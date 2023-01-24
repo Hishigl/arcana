@@ -167,7 +167,7 @@ switch ($_GET['act']) {
       while ($r3 = mysqli_fetch_array($sql3)) {
         $i++;
         echo "<tr><td class=opsi>$i</td>";
-        echo "<td class=opsi>G" . str_pad($r3["kode_gejala"], 3, '0', STR_PAD_LEFT) . "</td>";
+        echo "<td class=opsi>" . str_pad($r3["kode_gejala"], 2, '0', STR_PAD_LEFT) . "</td>";
         echo "<td class=gejala>$r3[nama_gejala]</td>";
         echo '<td class="opsi"><select name="kondisi[]" id="sl' . $i . '" class="opsikondisi"/><option data-id="0" value="0">Pilih Tingkat Kesesuaian</option>';
         $s = "select * from kondisi order by id";
