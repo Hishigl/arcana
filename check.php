@@ -107,7 +107,7 @@ switch (isset($_GET['act'])) {
 
       echo "<div class='content'>
 	  <h2 class='text text-primary'>Hasil Diagnosis &nbsp;&nbsp;<button id='print' onClick='window.print();' data-toggle='tooltip' data-placement='right' title='Klik tombol ini untuk mencetak hasil diagnosa'><i class='fa fa-print'></i> Cetak</button> </h2>
-	          <hr><table class='table table-bordered table-striped diagnosa'> 
+	          <hr><table class='table table-bordered table-striped check.php'> 
           <th width=8%>No</th>
           <th width=10%>Kode</th>
           <th>Gejala yang dialami (keluhan)</th>
@@ -159,7 +159,7 @@ switch (isset($_GET['act'])) {
                       <h4><i class='icon fa fa-exclamation-triangle'></i>Perhatian !</h4>
                       Silahkan memilih gejala sesuai dengan kondisi kulit wajah anda, anda dapat memilih tingkat kepastian kondisi kulit wajah anda dari pasti tidak sampai pasti ya, jika sudah tekan tombol proses (<i class='fa fa-search-plus'></i>)  di bawah untuk melihat hasil.
                     </div>
-          <form name=text_form method=POST action='diagnosa' >
+          <form name=text_form method=POST action='check.php' >
                 <table class='table table-bordered table-striped konsultasi'><tbody class='pilihkondisi'>
                 <tr><th>No</th><th>Kode</th><th>Gejala</th><th width='20%'>Pilih Kondisi</th></tr>";
 
