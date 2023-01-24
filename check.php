@@ -6,6 +6,7 @@
 <?php include 'navbar.php';?>
 <?php include 'dbconnect.php';?>
 
+
 <div class="container">
 
 <?php
@@ -17,7 +18,7 @@ switch (isset($_GET['act'])) {
       date_default_timezone_set("Asia/Jakarta");
       $inptanggal = date('Y-m-d H:i:s');
 
-      $arbobot = array('0', '1', '0.8', '0.6', '0.4', '-0.2', '-0.4', '-0.6', '-0.8', '-1');
+      $arbobot = array('0', '0', '0.2', '0.4', '0.6', '0.8', '1');
       $argejala = array();
 
       for ($i = 0; $i < count($_POST['kondisi']); $i++) {
@@ -106,7 +107,7 @@ switch (isset($_GET['act'])) {
 
       echo "<div class='content'>
 	  <h2 class='text text-primary'>Hasil Diagnosis &nbsp;&nbsp;<button id='print' onClick='window.print();' data-toggle='tooltip' data-placement='right' title='Klik tombol ini untuk mencetak hasil diagnosa'><i class='fa fa-print'></i> Cetak</button> </h2>
-	          <hr><table class='table table-bordered table-striped check'> 
+	          <hr><table class='table table-bordered table-striped diagnosa'> 
           <th width=8%>No</th>
           <th width=10%>Kode</th>
           <th>Gejala yang dialami (keluhan)</th>
@@ -158,7 +159,7 @@ switch (isset($_GET['act'])) {
                 <h4><i class='icon fa fa-exclamation-triangle'></i>Perhatian !</h4>
                 Silahkan memilih gejala sesuai dengan kondisi kulit wajah anda, anda dapat memilih tingkat kepastian kondisi kulit wajah anda dari pasti tidak sampai pasti ya, jika sudah tekan tombol proses (<i class='fa fa-search-plus'></i>)  di bawah untuk melihat hasil.
               </div>
-		<form name=text_form method=POST action='check' >
+		<form name=text_form method=POST action='diagnosa' >
            <table class='table table-bordered table-striped konsultasi'><tbody class='pilihkondisi'>
            <tr><th>No</th><th>Kode</th><th>Gejala</th><th width='20%'>Pilih Kondisi</th></tr>";
 
@@ -206,5 +207,161 @@ switch (isset($_GET['act'])) {
 }
 ?>
 </div>
-
 </html>
+
+<style>
+    select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 5px;
+    border-radius: 0.4em;
+    border: 1px solid #ddd;
+  }
+
+  select option {
+    margin: 40px;
+    background: #31708f;
+    color: #000;
+    border: 1px solid #ddd;
+  }
+
+
+
+  select option[data-id="0"]{ /* data-id not val */
+      color: #ffffff;
+  }
+  select option[data-id="1"]{ /* data-id not val */
+      color: #cc66ff;
+  }
+  select option[data-id="2"] {   
+      color: #019AFF;
+  }
+  select option[data-id="3"] {   
+      color: #00CBFD;
+  }
+  select option[data-id="4"] {   
+      color: #00FEFE;
+  }
+  select option[data-id="5"] {   
+      color: #A4F804;
+  }
+  select option[data-id="6"] {   
+      color: #FFFC00;
+  }
+  select option[data-id="7"] {   
+      color: #FDCD01;
+  }
+  select option[data-id="8"] {   
+      color: #FD9A01;
+  }
+  select option[data-id="9"] {   
+      color: #FB6700;
+  }
+
+  select:disabled {
+      background-color: #cccccc;
+  }
+
+  #tombol {
+    position:inherit;
+  }
+
+  tbody.pilihkondisi td.opsi{
+      text-align:center; 
+      vertical-align:middle;
+  }
+
+  tbody.pilihkondisi td,
+  tbody.pilihkondisi td.gejala,
+  tbody.pilihkondisi th{
+      vertical-align:middle;
+  }
+
+  tbody.pilihkondisi th{
+      text-align:center; 
+      vertical-align:middle;
+      background: #ecf0f1;
+
+  }
+
+  span.hasil{
+      padding: 8px;
+  }
+
+  table.diagnosa th{
+      background-color: #9b59b6;   
+      color: #fff;
+  }
+
+  table.diagnosa {
+      border: 2px solid #9b59b6;
+  }
+
+  table.table-bordered.diagnosa th{
+      border: 1px solid #9b59b6;
+  }
+  table.table-bordered.diagnosa td {
+      border: 1px solid #e9d5eb;
+  }
+
+  /*Konsultasi*/
+  table.konsultasi th{
+      background-color: #95afc0;   
+      color: #fff;
+  }
+
+  table.konsultasi {
+      border: 1px solid #95afc0;
+  }
+
+  table.table-bordered.konsultasi th{
+      border: 1px solid #95afc0;
+  }
+  table.table-bordered.konsultasi td {
+      border: 1px solid #c9d1d9;
+  }
+
+  /*Riwayat*/
+  table.riwayat th{
+      background-color: #22a6b3;   
+      color: #fff;
+  }
+
+  table.riwayat {
+      border: 1px solid #22a6b3;
+  }
+
+  table.table-bordered.riwayat th{
+      border: 1px solid #22a6b3;
+  }
+  table.table-bordered.riwayat td {
+      border: 1px solid #c9d1d9;
+      vertical-align: middle;
+  }
+
+
+  span.kondisipilih {
+      background-color: #2f2130;
+      padding: 2px 4px;
+      border-radius: 4px;
+  }
+
+  div.paging {
+    margin-top: 25px;
+  }
+
+  .margin4 {
+      margin: 4px;
+  }
+
+  img.post{
+      
+  }
+
+  .well {
+    overflow: hidden;
+  }
+</style>
