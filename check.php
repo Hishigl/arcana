@@ -120,7 +120,7 @@ switch ($_GET['act']) {
         $sql4 = mysqli_query($conn, "SELECT * FROM gejala where kode_gejala = '$key'");
         $r4 = mysqli_fetch_array($sql4);
         echo '<tr><td>' . $ig . '</td>';
-        echo '<td>G' . str_pad($r4[kode_gejala], 3, '0', STR_PAD_LEFT) . '</td>';
+        echo '<td>' . str_pad($r4[kode_gejala], 2, '0', STR_PAD_LEFT) . '</td>';
         echo '<td><span class="hasil text text-primary">' . $r4[nama_gejala] . "</span></td>";
         echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
       }

@@ -10,16 +10,16 @@
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mx-auto ">
             <li class="nav-item">
-            <a class="nav-link mx-2 active" aria-current="page" href="index.php">Home</a>
+            <a class="nav-link mx-2" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Skincare Products</a>
+            <a class="nav-link mx-2" href="product.php">Skincare Products</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link mx-2" href="#">News</a>
+            <a class="nav-link mx-2" href="news.php">News</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link mx-2" href="#">About Us</a>
+            <a class="nav-link mx-2" href="about.php">About Us</a>
             </li>
             <!-- <li class="nav-item dropdown">
                 <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
