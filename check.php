@@ -41,7 +41,7 @@ switch (isset($_GET['act'])) {
         $argpkt[$rpkt['kode_tipewajah']] = $rpkt['gambar'];
       }
 
-      print_r($arkondisitext);
+      // print_r($arkondisitext);
   // -------- perhitungan certainty factor (CF) ---------
   // --------------------- START ------------------------
       $sqltipewajah = mysqli_query($conn, "SELECT * FROM tipewajah order by kode_tipewajah");
@@ -154,7 +154,6 @@ switch (isset($_GET['act'])) {
       echo "
         <h2 class='text text-primary'>Diagnosa Tipe Kulit Wajah</h2>  <hr>
         <div class='alert alert-success alert-dismissible'>
-                      <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
                       <h4><i class='icon fa fa-exclamation-triangle'></i>Perhatian !</h4>
                       Silahkan memilih gejala sesuai dengan kondisi kulit wajah anda, anda dapat memilih tingkat kepastian kondisi kulit wajah anda dari pasti tidak sampai pasti ya, jika sudah tekan tombol proses (<i class='fa fa-search-plus'></i>)  di bawah untuk melihat hasil.
                     </div>
