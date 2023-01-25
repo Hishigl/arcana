@@ -109,7 +109,6 @@ switch (isset($_GET['act'])) {
 	  <h2 class='text text-primary'>Hasil Diagnosis &nbsp;&nbsp;<button id='print' onClick='window.print();' data-toggle='tooltip' data-placement='right' title='Klik tombol ini untuk mencetak hasil diagnosa'><i class='fa fa-print'></i> Cetak</button> </h2>
 	          <hr><table class='table table-bordered table-striped check.php'> 
           <th width=8%>No</th>
-          <th width=10%>Kode</th>
           <th>Gejala yang dialami (keluhan)</th>
           <th width=20%>Pilihan</th>
           </tr>";
@@ -121,7 +120,7 @@ switch (isset($_GET['act'])) {
         $sql4 = mysqli_query($conn, "SELECT * FROM gejala where kode_gejala = '$key'");
         $r4 = mysqli_fetch_array($sql4);
         echo '<tr><td>' . $ig . '</td>';
-        echo '<td>G' . str_pad($r4["kode_gejala"], 2, '0', STR_PAD_LEFT) . '</td>';
+        // echo '<td>G' . str_pad($r4["kode_gejala"], 2, '0', STR_PAD_LEFT) . '</td>';
         echo '<td><span class="hasil text text-primary">' . $r4["nama_gejala"] . "</span></td>";
         echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
       }
@@ -133,12 +132,12 @@ switch (isset($_GET['act'])) {
         $vlpkt[$np] = $value;
       }
       if ($argpkt[$idpkt[1]]) {
-        $gambar = 'gambar/penyakit/' . $argpkt[$idpkt[1]];
+        $gambar = 'asset/img/' . $argpkt[$idpkt[1]];
       } else {
-        $gambar = 'gambar/noimage.png';
+        $gambar = 'asset/img/noimage.png';
       }
       echo "</table><div class='well well-small'><img class='card-img-top img-bordered-sm' style='float:right; margin-left:15px;' src='" . $gambar . "' height=200><h3>Hasil Diagnosa</h3>";
-      echo "<div class='callout callout-default'>Jenis Tipe kulit wajah yang dimiliki dalah <b><h3 class='text text-success'>" . $nmpkt[1] . "</b> / " . round($vlpkt[1], 2) . " % (" . $vlpkt[1] . ")<br></h3>";
+      echo "<div class='callout callout-default'>Jenis Tipe kulit wajah yang dimiliki dalah <b><h3 class='text text-success'>" . $nmpkt[1] . "</b> / " . round($vlpkt[1], 4)*100 . "%<br></h3>";
       echo "</div></div><div class='box box-info box-solid'><div class='box-header with-border'><h3 class='box-title'>Detail</h3></div><div class='box-body'><h4>";
       echo $ardpkt[$idpkt[1]];
       echo "</h4></div></div>
@@ -147,7 +146,7 @@ switch (isset($_GET['act'])) {
       echo "</h4></div></div>
           <div class='box box-danger box-solid'><div class='box-header with-border'><h3 class='box-title'>Kemungkinan lain:</h3></div><div class='box-body'><h4>";
       for ($ipl = 2; $ipl < count($idpkt); $ipl++) {
-        echo " <h4><i class='fa fa-caret-square-o-right'></i> " . $nmpkt[$ipl] . "</b> / " . round($vlpkt[$ipl], 2) . " % (" . $vlpkt[$ipl] . ")<br></h4>";
+        echo " <h4><i class='fa fa-caret-square-o-right'></i> " . $nmpkt[$ipl] . "</b> / " . round($vlpkt[$ipl], 4)*100 . "%<br></h4>";
       }
       echo "</div></div>
 		  </div>";
@@ -161,14 +160,14 @@ switch (isset($_GET['act'])) {
                     </div>
           <form name=text_form method=POST action='check.php' >
                 <table class='table table-bordered table-striped konsultasi'><tbody class='pilihkondisi'>
-                <tr><th>No</th><th>Kode</th><th>Gejala</th><th width='20%'>Pilih Kondisi</th></tr>";
+                <tr><th>No</th><th>Gejala</th><th width='20%'>Pilih Kondisi</th></tr>";
 
       $sql3 = mysqli_query($conn, "SELECT * FROM gejala order by kode_gejala");
       $i = 0;
       while ($r3 = mysqli_fetch_array($sql3)) {
         $i++;
         echo "<tr><td class=opsi>$i</td>";
-        echo "<td class=opsi>G" . str_pad($r3["kode_gejala"], 2, '0', STR_PAD_LEFT) . "</td>";
+        // echo "<td class=opsi>G" . str_pad($r3["kode_gejala"], 2, '0', STR_PAD_LEFT) . "</td>";
         echo "<td class=gejala>$r3[nama_gejala]</td>";
         echo '<td class="opsi"><select name="kondisi[]" id="sl' . $i . '" class="opsikondisi"/><option data-id="0" value="0">Pilih Tingkat Kesesuaian</option>';
         $s = "select * from kondisi order by id";
