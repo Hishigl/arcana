@@ -8,19 +8,20 @@
 </head>
 <body>
     <div class="container">
-            <?php
-          echo "
-          <h2 class='text text-primary'>Berita</h2><hr>
-          <div class='alert alert-success alert-dismissible'>
-                        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>
-                        <h4><i class='icon fa fa-exclamation-triangle'></i>Perhatian !</h4>
-                        Silahkan memilih gejala sesuai dengan kondisi kulit wajah anda, anda dapat memilih tingkat kepastian kondisi kulit wajah anda dari pasti tidak sampai pasti ya, jika sudah tekan tombol proses (<i class='fa fa-search-plus'></i>)  di bawah untuk melihat hasil.
-                      </div>
-            <form name=text_form method=POST action='diagnosa' >
-                  <table class='table table-bordered table-striped konsultasi'><tbody class='pilihkondisi'>
-                  <tr><th>No</th><th>Kode</th><th>Gejala</th><th width='20%'>Pilih Kondisi</th></tr>";
-    
-    ?>
+    <section id="gallery" style="margin-top:50px">
+        <div class="row">
+        <div class="col-lg-4 mb-4">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1477862096227-3a1bb3b08330?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Sunset</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut eum similique repellat a laborum, rerum voluptates ipsam eos quo tempore iusto dolore modi dolorum in pariatur. Incidunt repellendus praesentium quae!</p>
+          <a href="" class="btn btn-outline-success btn-sm">Read More</a>
+          </div>
+        </div>
+        </div>
+    </section>
+
     </div>
 </body>
 </html>

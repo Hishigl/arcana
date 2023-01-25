@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark p-3" style="background-color:#F46E16; font-size:25px; font-family: 'Rowdies', cursive;" id="headerNav">
+<nav class="navbar navbar-expand-lg navbar-dark p-3" style="background-color:#FF6100; font-size:25px; font-family: 'Rowdies', cursive;" id="headerNav">
     <div class="container-fluid">
         <a class="navbar-brand d-block d-lg-none" href="#">
         <img src="/static_files/images/logos/logo_2_white.png" height="80" />
