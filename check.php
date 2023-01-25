@@ -38,7 +38,7 @@ switch (isset($_GET['act'])) {
         $arpkt[$rpkt['kode_tipewajah']] = $rpkt['nama_tipewajah'];
         $ardpkt[$rpkt['kode_tipewajah']] = $rpkt['det_tipewajah'];
         $arspkt[$rpkt['kode_tipewajah']] = $rpkt['srn_tipewajah'];
-        // $argpkt[$rpkt['kode_tipewajah']] = $rpkt['gambar'];
+        $argpkt[$rpkt['kode_tipewajah']] = $rpkt['gambar'];
       }
 
       print_r($arkondisitext);
@@ -136,7 +136,7 @@ switch (isset($_GET['act'])) {
       } else {
         $gambar = 'asset/img/noimage.png';
       }
-      echo "</table><div class='well well-small'><img class='card-img-top img-bordered-sm' style='float:right; margin-left:15px;' src='" . $gambar . "' height=200><h3>Hasil Diagnosa</h3>";
+      echo "</table><div class='well well-small'><img class='card-img-top img-bordered-sm' style='float:right; margin-left:15px;' src='" . $gambar . "'><h3>Hasil Diagnosa</h3>";
       echo "<div class='callout callout-default'>Jenis Tipe kulit wajah yang dimiliki dalah <b><h3 class='text text-success'>" . $nmpkt[1] . "</b> / " . round($vlpkt[1], 4)*100 . "%<br></h3>";
       echo "</div></div><div class='box box-info box-solid'><div class='box-header with-border'><h3 class='box-title'>Detail</h3></div><div class='box-body'><h4>";
       echo $ardpkt[$idpkt[1]];
