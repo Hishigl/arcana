@@ -122,7 +122,7 @@ switch (isset($_GET['act'])) {
         echo '<tr><td>' . $ig . '</td>';
         // echo '<td>G' . str_pad($r4["kode_gejala"], 2, '0', STR_PAD_LEFT) . '</td>';
         echo '<td><span class="hasil text text-primary">' . $r4["nama_gejala"] . "</span></td>";
-        echo '<td><span class="kondisipilih" style="color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
+        echo '<td><span class="kondisipilih" style="background-color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
       }
       $np = 0;
       foreach ($artipewajah as $key => $value) {
@@ -136,8 +136,8 @@ switch (isset($_GET['act'])) {
       } else {
         $gambar = 'asset/img/noimage.png';
       }
-      echo "</table><div class='well well-small'><img class='card-img-top img-bordered-sm' style='float:right; margin-left:15px;' src='" . $gambar . "'><h3>Hasil Diagnosa</h3>";
-      echo "<div class='callout callout-default'>Jenis Tipe kulit wajah yang dimiliki dalah <b><h3 class='text text-success'>" . $nmpkt[1] . "</b> / " . round($vlpkt[1], 4)*100 . "%<br></h3>";
+      echo "</table><div class='well well-small'><img class='card-img-top img-bordered-sm' style='float:right; margin-left:15px; width:400px; margin-right:100px; margin-top:50px; margin-bottom:50px' src='" . $gambar . "'><h1>Hasil Diagnosa</h1>";
+      echo "<div class='callout callout-default' >Jenis Tipe kulit wajah yang dimiliki dalah <b><h3 class='text text-success'>" . $nmpkt[1] . "</b> / " . round($vlpkt[1], 4)*100 . "%<br></h3>";
       echo "</div></div><div class='box box-info box-solid'><div class='box-header with-border'><h3 class='box-title'>Detail</h3></div><div class='box-body'><h4>";
       echo $ardpkt[$idpkt[1]];
       echo "</h4></div></div>
@@ -225,9 +225,7 @@ switch (isset($_GET['act'])) {
     color: #000;
     border: 1px solid #ddd;
   }
-
-
-
+  
   select option[data-id="0"]{ /* data-id not val */
       color: #ffffff;
   }
@@ -323,7 +321,7 @@ switch (isset($_GET['act'])) {
 
   /*Konsultasi*/
   table.konsultasi th{
-      background-color: #95afc0;   
+      background-color: #FF9656;   
       color: #fff;
   }
 
@@ -374,8 +372,8 @@ switch (isset($_GET['act'])) {
 	margin-top:22px;
 }
   span.kondisipilih {
-      background-color: #2f2130;
-      padding: 2px 4px;
+      /* background-color: #2f2130; */
+      padding: 2px 50px;
       border-radius: 4px;
   }
 
@@ -387,8 +385,8 @@ switch (isset($_GET['act'])) {
       margin: 4px;
   }
 
-  img.post{
-      
+  .box-title{
+      background-color:#FFBB92;
   }
 
   .well {
