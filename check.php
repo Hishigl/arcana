@@ -122,7 +122,7 @@ switch (isset($_GET['act'])) {
         echo '<tr><td>' . $ig . '</td>';
         // echo '<td>G' . str_pad($r4["kode_gejala"], 2, '0', STR_PAD_LEFT) . '</td>';
         echo '<td><span class="hasil text text-primary">' . $r4["nama_gejala"] . "</span></td>";
-        echo '<td><span class="kondisipilih" style="background-color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
+        echo '<td style="display:flex; flex-direction:column"><span class="kondisipilih" style="background-color:' . $arcolor[$kondisi] . '">' . $arkondisitext[$kondisi] . "</span></td></tr>";
       }
       $np = 0;
       foreach ($artipewajah as $key => $value) {
@@ -152,7 +152,7 @@ switch (isset($_GET['act'])) {
 		  </div>";
     } else {
       echo "
-        <h2 class='text text-primary'>Diagnosa Tipe Kulit Wajah</h2>  <hr>
+        <h1 class='text text-primary'>Diagnosa Tipe Kulit Wajah</h1>  <hr>
         <div class='alert alert-success alert-dismissible'>
                       <h4><i class='icon fa fa-exclamation-triangle'></i>Perhatian !</h4>
                       Silahkan memilih gejala sesuai dengan kondisi kulit wajah anda, anda dapat memilih tingkat kepastian kondisi kulit wajah anda dari pasti tidak sampai pasti ya, jika sudah tekan tombol proses (<i class='fa fa-search-plus'></i>)  di bawah untuk melihat hasil.
@@ -312,6 +312,12 @@ switch (isset($_GET['act'])) {
       border: 2px solid #9b59b6;
   }
 
+  .text-primary{
+    color:black !important;
+    display:flex;
+    justify-content:center;
+    /* margin-top:30d */
+  }
   table.table-bordered.diagnosa th{
       border: 1px solid #9b59b6;
   }
@@ -354,14 +360,16 @@ switch (isset($_GET['act'])) {
       vertical-align: middle;
   }
 
-
+  body{
+    font-family: 'Rowdies'
+  }
   .float{
 	position:fixed;
 	width:60px;
 	height:60px;
 	bottom:40px;
 	right:40px;
-	background-color:#0C9;
+	background-color:#ff721e;
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
@@ -375,6 +383,8 @@ switch (isset($_GET['act'])) {
       /* background-color: #2f2130; */
       padding: 2px 50px;
       border-radius: 4px;
+      display:flex;
+      justify-content:center
   }
 
   div.paging {
