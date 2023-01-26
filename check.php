@@ -14,7 +14,7 @@ switch (isset($_GET['act'])) {
 
   default:
     if (isset($_POST['submit'])) {
-      $arcolor = array('#ffffff', '#cc66ff', '#019AFF', '#00CBFD', '#00FEFE', '#A4F804', '#FFFC00', '#FDCD01', '#FD9A01', '#FB6700');
+      $arcolor = array('#000','#FF0000', ' #FF6100', '#FFBA52', '#FFD21C', '#A4F804', '#21A258', ' #FDCD01');
       date_default_timezone_set("Asia/Jakarta");
       $inptanggal = date('Y-m-d H:i:s');
 
@@ -180,7 +180,7 @@ switch (isset($_GET['act'])) {
         ?>
         <script type="text/javascript">
           $(document).ready(function () {
-            var arcolor = new Array('#ffffff', '#cc66ff', '#019AFF', '#00CBFD', '#00FEFE', '#A4F804', '#FFFC00', '#FDCD01', '#FD9A01', '#FB6700');
+            var arcolor = new Array('#000','#FF0000', ' #FF6100', '#FFBA52', '#FFD21C', '#A4F804', '#21A258', ' #FDCD01');
             setColor();
             $('.pilihkondisi').on('change', 'tr td select#sl<?php echo $i; ?>', function () {
               setColor();
@@ -209,53 +209,44 @@ switch (isset($_GET['act'])) {
 
 <style>
     select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
     padding: 5px;
     border-radius: 0.4em;
     border: 1px solid #ddd;
+    /* background-color:#cccccc */
   }
+
 
   select option {
     margin: 40px;
-    background: #31708f;
     color: #000;
     border: 1px solid #ddd;
   }
   
   select option[data-id="0"]{ /* data-id not val */
-      color: #ffffff;
+      background-color: #ffffff;
   }
   select option[data-id="1"]{ /* data-id not val */
-      color: #cc66ff;
+      background-color: #FF0000;
   }
   select option[data-id="2"] {   
-      color: #019AFF;
+    background-color: #FF6100;
   }
   select option[data-id="3"] {   
-      color: #00CBFD;
+    background-color: #FFBA52;
   }
   select option[data-id="4"] {   
-      color: #00FEFE;
+    background-color: #FFD21C;
   }
   select option[data-id="5"] {   
-      color: #A4F804;
+    background-color: #A4F804;
   }
   select option[data-id="6"] {   
-      color: #FFFC00;
+    background-color: #21A258;
   }
   select option[data-id="7"] {   
-      color: #FDCD01;
+    background-color: #FDCD01;
   }
-  select option[data-id="8"] {   
-      color: #FD9A01;
-  }
-  select option[data-id="9"] {   
-      color: #FB6700;
-  }
+
 
   select:disabled {
       background-color: #cccccc;
