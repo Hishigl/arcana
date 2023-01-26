@@ -9,7 +9,7 @@
 
 <div class="container">
 
-<?php
+    <?php
 switch (isset($_GET['act'])) {
 
   default:
@@ -176,31 +176,33 @@ switch (isset($_GET['act'])) {
         $q = mysqli_query($conn, $s) or die($s);
         while ($rw = mysqli_fetch_array($q)) {
           ?>
-          <option data-id="<?php echo $rw['id']; ?>" value="<?php echo $r3['kode_gejala'] . '_' . $rw['id']; ?>"><?php echo $rw['kondisi']; ?></option>
-          <?php
+    <option data-id="<?php echo $rw['id']; ?>" value="<?php echo $r3['kode_gejala'] . '_' . $rw['id']; ?>">
+        <?php echo $rw['kondisi']; ?></option>
+    <?php
         }
         echo '</select></td>';
         ?>
-        <script type="application/javascript">
-          $(document).ready(function () {
-            var arcolor = new Array('#000','#FF0000', ' #FF6100', '#FFBA52', '#FFD21C', '#A4F804', '#21A258', ' #FDCD01');
+    <script type="application/javascript">
+    $(document).ready(function() {
+        var arcolor = new Array('#000', '#FF0000', ' #FF6100', '#FFBA52', '#FFD21C', '#A4F804', '#21A258',
+            ' #FDCD01');
+        setColor();
+        $('.pilihkondisi').on('change', 'tr td select#sl<?php echo $i; ?>', function() {
             setColor();
-            $('.pilihkondisi').on('change', 'tr td select#sl<?php echo $i; ?>', function() {
-              setColor();
-            });
-            function setColor()
-            {
-              var selectedItem = $('tr td select#sl<?php echo $i; ?> :selected');
-              var color = arcolor[selectedItem.data("id")];
-              $("tr td select#sl<?php echo $i; ?>.opsikondisi").css('background-color', color);
-              console.log(color);
-            }
-            if (selectedItem == null) {
-        toast("You need to choose an item form the list first")
-    }
-          });
-        </script>
-        <?php
+        });
+
+        function setColor() {
+            var selectedItem = $('tr td select#sl<?php echo $i; ?> :selected');
+            var color = arcolor[selectedItem.data("id")];
+            $("tr td select#sl<?php echo $i; ?>.opsikondisi").css('background-color', color);
+            console.log(color);
+        }
+        if (selectedItem == null) {
+            toast("You need to choose an item form the list first")
+        }
+    });
+    </script>
+    <?php
         echo "</tr>";
       }
       echo "
@@ -211,190 +213,207 @@ switch (isset($_GET['act'])) {
 }
 ?>
 </div>
+
 </html>
 
 <style>
-    select {
+select {
     padding: 5px;
     border-radius: 0.4em;
     border: 1px solid #ddd;
-    background-color:#cccccc
-  }
+    background-color: #cccccc
+}
 
-  select option {
+select option {
     margin: 40px;
     color: #000;
     border: 1px solid #ddd;
-  }
-  
-  select option[data-id="0"]{ /* data-id not val */
-      background-color: #ffffff;
-  }
-  select option[data-id="1"]{ /* data-id not val */
-      background-color: #FF0000;
-  }
-  select option[data-id="2"] {   
+}
+
+select option[data-id="0"] {
+    /* data-id not val */
+    background-color: #ffffff;
+}
+
+select option[data-id="1"] {
+    /* data-id not val */
+    background-color: #FF0000;
+}
+
+select option[data-id="2"] {
     background-color: #FF6100;
-  }
-  select option[data-id="3"] {   
+}
+
+select option[data-id="3"] {
     background-color: #FFBA52;
-  }
-  select option[data-id="4"] {   
+}
+
+select option[data-id="4"] {
     background-color: #FFD21C;
-  }
-  select option[data-id="5"] {   
+}
+
+select option[data-id="5"] {
     background-color: #A4F804;
-  }
-  select option[data-id="6"] {   
+}
+
+select option[data-id="6"] {
     background-color: #21A258;
-  }
-  select option[data-id="7"] {   
+}
+
+select option[data-id="7"] {
     background-color: #FDCD01;
-  }
-
-  select:disabled {
-      background-color: #cccccc;
-  }
-
-  #tombol {
-    position:inherit;
-  }
-
-  tbody.pilihkondisi td.opsi{
-      text-align:center; 
-      vertical-align:middle;
-  }
-
-  .float{
-	position:fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color:#0C9;
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
 }
 
-.my-float{
-	margin-top:22px;
+select:disabled {
+    background-color: #cccccc;
 }
-  tbody.pilihkondisi td,
-  tbody.pilihkondisi td.gejala,
-  tbody.pilihkondisi th{
-      vertical-align:middle;
-  }
 
-  tbody.pilihkondisi th{
-      text-align:center; 
-      vertical-align:middle;
-      background: #ecf0f1;
+#tombol {
+    position: inherit;
+}
 
-  }
+tbody.pilihkondisi td.opsi {
+    text-align: center;
+    vertical-align: middle;
+}
 
-  span.hasil{
-      padding: 8px;
-  }
+.float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #0C9;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
 
-  table.diagnosa th{
-      background-color: #9b59b6;   
-      color: #fff;
-  }
+.my-float {
+    margin-top: 22px;
+}
 
-  table.diagnosa {
-      border: 2px solid #9b59b6;
-  }
+tbody.pilihkondisi td,
+tbody.pilihkondisi td.gejala,
+tbody.pilihkondisi th {
+    vertical-align: middle;
+}
 
-  .text-primary{
-    color:black !important;
-    display:flex;
-    justify-content:center;
+tbody.pilihkondisi th {
+    text-align: center;
+    vertical-align: middle;
+    background: #ecf0f1;
+
+}
+
+span.hasil {
+    padding: 8px;
+}
+
+table.diagnosa th {
+    background-color: #9b59b6;
+    color: #fff;
+}
+
+table.diagnosa {
+    border: 2px solid #9b59b6;
+}
+
+.text-primary {
+    color: black !important;
+    display: flex;
+    justify-content: center;
     /* margin-top:30d */
-  }
-  table.table-bordered.diagnosa th{
-      border: 1px solid #9b59b6;
-  }
-  table.table-bordered.diagnosa td {
-      border: 1px solid #e9d5eb;
-  }
+}
 
-  /*Konsultasi*/
-  table.konsultasi th{
-      background-color: #FF9656;   
-      color: #fff;
-  }
+table.table-bordered.diagnosa th {
+    border: 1px solid #9b59b6;
+}
 
-  table.konsultasi {
-      border: 1px solid #95afc0;
-  }
+table.table-bordered.diagnosa td {
+    border: 1px solid #e9d5eb;
+}
 
-  table.table-bordered.konsultasi th{
-      border: 1px solid #95afc0;
-  }
-  table.table-bordered.konsultasi td {
-      border: 1px solid #c9d1d9;
-  }
+/*Konsultasi*/
+table.konsultasi th {
+    background-color: #FF9656;
+    color: #fff;
+}
 
-  /*Riwayat*/
-  table.riwayat th{
-      background-color: #22a6b3;   
-      color: #fff;
-  }
+table.konsultasi {
+    border: 1px solid #95afc0;
+}
 
-  table.riwayat {
-      border: 1px solid #22a6b3;
-  }
+table.table-bordered.konsultasi th {
+    border: 1px solid #95afc0;
+}
 
-  table.table-bordered.riwayat th{
-      border: 1px solid #22a6b3;
-  }
-  table.table-bordered.riwayat td {
-      border: 1px solid #c9d1d9;
-      vertical-align: middle;
-  }
+table.table-bordered.konsultasi td {
+    border: 1px solid #c9d1d9;
+}
 
-  body{
+/*Riwayat*/
+table.riwayat th {
+    background-color: #22a6b3;
+    color: #fff;
+}
+
+table.riwayat {
+    border: 1px solid #22a6b3;
+}
+
+table.table-bordered.riwayat th {
+    border: 1px solid #22a6b3;
+}
+
+table.table-bordered.riwayat td {
+    border: 1px solid #c9d1d9;
+    vertical-align: middle;
+}
+
+body {
     font-family: 'Rowdies'
-  }
-  .float{
-	position:fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color:#ff721e;
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
 }
 
-.my-float{
-	margin-top:22px;
+.float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #ff721e;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
 }
-  span.kondisipilih {
-      /* background-color: #2f2130; */
-      padding: 2px 50px;
-      border-radius: 4px;
-      display:flex;
-      justify-content:center
-  }
 
-  div.paging {
+.my-float {
+    margin-top: 22px;
+}
+
+span.kondisipilih {
+    /* background-color: #2f2130; */
+    padding: 2px 50px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center
+}
+
+div.paging {
     margin-top: 25px;
-  }
+}
 
-  .margin4 {
-      margin: 4px;
-  }
+.margin4 {
+    margin: 4px;
+}
 
-  .box-title{
-      background-color:#FFBB92;
-  }
+.box-title {
+    background-color: #FFBB92;
+}
 
-  .well {
+.well {
     overflow: hidden;
-  }
+}
 </style>
