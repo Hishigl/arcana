@@ -5,7 +5,7 @@
 <?php include 'head.php';?>
 <?php include 'navbar.php';?>
 <?php include 'dbconnect.php';?>
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <div class="container">
     <?php
@@ -60,12 +60,12 @@
                                 $arkondisi = explode("_", $_POST['kondisi'][$i]);
                                 $gejala = $arkondisi[0];
                                 if ($rgejala['kode_gejala'] == $gejala) {
-                                    $cf = ($rgejala['mb'] - $rgejala['md']) * $arbobot[$arkondisi[1]];
+                                    $cf = ($rgejala['mb']-$rgejala['md']) * $arbobot[$arkondisi[1]];
                                     if (($cf >= 0) && ($cf * $cflama >= 0)) {
-                                        $cflama = $cflama + ($cf * (1 - $cflama));
+                                        $cflama = $cflama + ($cf * (1-$cflama));
                                     }
                                     if ($cf * $cflama < 0) {
-                                        $cflama = ($cflama + $cf) / (1 - Math . Min(Math . abs($cflama), Math . abs($cf)));
+                                        $cflama = ($cflama + $cf) / (1-Math . Min(Math . abs($cflama), Math . abs($cf)));
                                     }
                                     if (($cf < 0) && ($cf * $cflama >= 0)) {
                                         $cflama = $cflama + ($cf * (1 + $cflama));
@@ -180,11 +180,9 @@
                         }
                         echo '</select></td>';
                         ?>
-    <script type="text/javascript">
-    < script type = "text/javascript" >
+    <script type = "text/javascript" >
         $(document).ready(function() {
-            var arcolor = new Array('#ffffff', '#cc66ff', '#019AFF', '#00CBFD', '#00FEFE', '#A4F804', '#FFFC00',
-                '#FDCD01', '#FD9A01', '#FB6700');
+            var arcolor = new Array('#ffffff', '#FF0000', '#FF6100', '#FFBA52', '#FFD21C', '#A4F804', '#21A258');
             setColor();
             $('.pilihkondisi').on('change', 'tr td select#sl<?php echo $i; ?>', function() {
                 setColor();
@@ -197,73 +195,69 @@
                 console.log(color);
             }
         });
-    <?php
+        </script>
+                    <?php
                             echo "</tr>";
-                    }
-                    echo "
-                    <input class='float' type=submit data-toggle='tooltip' data-placement='top' title='Klik disini untuk melihat hasil diagnosa' name=submit value='&#xf00e;' style='font-family:Arial, FontAwesome'>
-                    </tbody></table></form>";
-                }
-                break;
-        }
-?>
-        <
-        /div>
-
-        <
-        /html>
-
-        <
-        style >
+                                    }
+                                    echo "
+                                            <input class='float' type=submit data-toggle='tooltip' data-placement='top' title='Klik disini untuk melihat hasil diagnosa' name=submit value='&#xf00e;' style='font-family:Arial, FontAwesome'>
+                                            </tbody></table></form>";
+                                }
+                                break;
+                        }
+                ?>
+        </div>
+</html>
+<style>
         select {
-            padding: 5 px;
-            border - radius: 0.4 em;
+            padding: 5px;
+            border-radius: 0.4em;
             border: 1 px solid #ddd;
-            background - color: #cccccc
+            background-color: #cccccc
         }
 
     select option {
-        margin: 40 px;
+        margin: 40px;
         color: #000;
-    border: 1px solid # ddd;
+    border: 1px solid #ddd;
     }
 
-    select option[data - id = "0"] {
+    select option[data-id = "0"] {
         /* data-id not val */
-        background - color: #ffffff;
+        background-color: #ffffff;
     }
 
-    select option[data - id = "1"] {
+    select option[data-id = "1"] {
         /* data-id not val */
-        background - color: #FF0000;
+        background-color: #FF0000;
     }
 
-    select option[data - id = "2"] {
-        background - color: #FF6100;
+    select option[data-id = "2"] {
+        background-color: #FF6100;
     }
 
-    select option[data - id = "3"] {
-        background - color: #FFBA52;
+    select option[data-id = "3"] {
+        background-color: #FFBA52;
     }
 
-    select option[data - id = "4"] {
-        background - color: #FFD21C;
+    select option[data-id = "4"] {
+        background-color: #FFD21C;
     }
 
-    select option[data - id = "5"] {
-        background - color: #A4F804;
+    select option[data-id = "5"] {
+        background-color: #A4F804;
     }
 
-    select option[data - id = "6"] {
-        background - color: #21A258;
+    select option[data-id = "6"] {
+        background-color: #21A258;
 }
 
 select option[data-id= "7"] {
-        background - color: #FDCD01;
+        background-color: #FDCD01;
     }
 
     select: disabled {
-        background - color: #cccccc;
+        background-color: #cccccc;
     }
 
     #tombol {
@@ -271,21 +265,21 @@ select option[data-id= "7"] {
     }
 
     tbody.pilihkondisi td.opsi {
-            text - align: center;
-            vertical - align: middle;
+            text-align: center;
+            vertical-align: middle;
         }
 
         .float {
             position: fixed;
-            width: 60 px;
-            height: 60 px;
-            bottom: 40 px;
-            right: 40 px;
-            background - color: #0C9;
-    color: # FFF;
-            border - radius: 50 px;
-            text - align: center;
-            box - shadow: 2 px 2 px 3 px #999;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #0C9;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
 }
 
 .my-float {
@@ -301,21 +295,21 @@ tbody.pilihkondisi th {
 tbody.pilihkondisi th {
     text-align: center;
     vertical-align: middle;
-    background: # ecf0f1;
+    background: #ecf0f1;
 
         }
 
     span.hasil {
-        padding: 8 px;
+        padding: 8px;
     }
 
     table.diagnosa th {
-        background - color: #9b59b6;
-    color: # fff;
+        background-color: #9b59b6;
+    color: #fff;
     }
 
     table.diagnosa {
-        border: 2 px solid #9b59b6;
+        border: 2px solid #9b59b6;
 }
 
 .text-primary {
@@ -326,35 +320,35 @@ tbody.pilihkondisi th {
 }
 
 table.table-bordered.diagnosa th {
-    border: 1px solid # 9 b59b6;
+    border: 1px solid #9b59b6;
     }
 
-    table.table - bordered.diagnosa td {
-        border: 1 px solid #e9d5eb;
+    table.table-bordered.diagnosa td {
+        border: 1px solid #e9d5eb;
     }
 
     /*Konsultasi*/
     table.konsultasi th {
-        background - color: #FF9656;
+        background-color: #FF9656;
         color: #fff;
     }
 
     table.konsultasi {
-        border: 1 px solid #95afc0;
+        border: 1px solid #95afc0;
 }
 
 table.table-bordered.konsultasi th {
-    border: 1px solid # 95 afc0;
+    border: 1px solid #95afc0;
     }
 
-    table.table - bordered.konsultasi td {
-        border: 1 px solid #c9d1d9;
+    table.table-bordered.konsultasi td {
+        border: 1px solid #c9d1d9;
     }
 
     /*Riwayat*/
     table.riwayat th {
-        background - color: #22a6b3;
-    color: # fff;
+        background-color: #22a6b3;
+    color: #fff;
     }
 
     table.riwayat {
@@ -362,29 +356,29 @@ table.table-bordered.konsultasi th {
 }
 
 table.table-bordered.riwayat th {
-    border: 1px solid # 22 a6b3;
+    border: 1px solid #22a6b3;
     }
 
-    table.table - bordered.riwayat td {
-        border: 1 px solid #c9d1d9;
-        vertical - align: middle;
+    table.table-bordered.riwayat td {
+        border: 1px solid #c9d1d9;
+        vertical-align: middle;
     }
 
     body {
-        font - family: 'Rowdies'
+        font-family: 'Rowdies'
     }
 
     .float {
         position: fixed;
-        width: 60 px;
-        height: 60 px;
-        bottom: 40 px;
-        right: 40 px;
-        background - color: #ff721e;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #ff721e;
         color: #FFF;
-        border - radius: 50 px;
-        text - align: center;
-        box - shadow: 2 px 2 px 3 px #999;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 2px 2px 3px #999;
 }
 
 .my-float {
@@ -393,25 +387,25 @@ table.table-bordered.riwayat th {
 
 span.kondisipilih {
     /* background-color: # 2 f2130;*/
-        padding: 2 px 50 px;
-        border - radius: 4 px;
+        padding: 2px 50px;
+        border-radius: 4px;
         display: flex;
-        justify - content: center
+        justify-content: center
     }
 
     div.paging {
-            margin - top: 25 px;
+            margin-top: 25px;
         }
 
         .margin4 {
-            margin: 4 px;
+            margin: 4px;
         }
 
-        .box - title {
-            background - color: #FFBB92;
+        .box-title {
+            background-color: #FFBB92;
         }
 
         .well {
             overflow: hidden;
-        } <
-        /style>
+        } 
+</style>
