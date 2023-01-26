@@ -14,7 +14,7 @@
         <div class="row" >
             <!-- Team item-->
             <div class="col-lg-4"style="display:flex; justify-content:center; text-align: center">
-                <div class="bg-white rounded shadow-sm py-5 px-4"><img src="asset/img/Ica2.jpg" alt=""width="250" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <div class="bg-white rounded shadow-sm py-5 px-4"><img src="asset/img/Ica.jpg" alt=""width="250" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                 <h5 class="mb-0">Cristha Patrisya Pentur</h5><span class="small text-uppercase text-muted">412020008</span>
                 <ul class="social mb-0 list-inline mt-3">
                     <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
