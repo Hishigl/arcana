@@ -2,7 +2,7 @@
     style="background-color:#FF6100; font-size:25px; font-family: 'Rowdies', cursive;" id="headerNav">
     <div class="container-fluid">
         <a class="navbar-brand d-block d-lg-none" href="#">
-            <img src="/static_files/images/logos/logo_2_white.png" height="80" />
+            <img src="asset/img/logo.png" height="80" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
