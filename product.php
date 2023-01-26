@@ -6,37 +6,65 @@
     <?php include 'head.php';?>
     <?php include 'navbar.php';?>
     <?php include 'dbconnect.php';?>
+    
 </head>
 
 <body>
     <div class="container">
+        <div class="row" style="margin-top:50px">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="2000">
+                    <img src="asset/img/banner.jpg" class="d-block w-100" width="1200" height="598" style="border-radius: 25px;"alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                    <img src="https://static.sehatq.com/content/review/image/1652192089.jpeg" width="1200" height="598"  style="border-radius: 25px;" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                    <img src="https://images.tokopedia.net/img/cache/1200/BgtCLw/2021/7/22/1fdcfd1e-8641-4e4d-8343-d93b27b9becc.jpg?ect=4g"  width="1200" height="598"  style="border-radius: 25px;" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                    <img src="https://1.bp.blogspot.com/-npA0ws6QlMo/YOG4yP-ZW8I/AAAAAAAAr4E/u5XdTpwXsdkiaaWa4wgQJ31hBStS-3SdgCLcBGAsYHQ/w1200-h630-p-k-no-nu/face%2Bcare%2Bscarlett%2Bwhitening.jpg"  width="1200" height="598"  style="border-radius: 25px;" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+        </div>
+
         <div class="row">
 
             <?php
-        $sqlproduct = mysqli_query($conn, "SELECT * FROM produk order by id_product+1");
-    while ($rproduct = mysqli_fetch_array($sqlproduct)):
-        ?>
-            <div class="col-md-3 col-sm-6" style="margin-top:50px">
-                <div class="product-grid">
-                    <div class="product-image">
-                        <a href="#" class="image">
-                            <img src="<?php echo $rproduct['gbr_produk']?>">
-                        </a>
-                        <a href="" class="add-to-cart" style="text-decoration:none">Beli Produk</a>
+                $sqlproduct = mysqli_query($conn, "SELECT * FROM produk order by id_product+1");
+            while ($rproduct = mysqli_fetch_array($sqlproduct)):
+                ?>
+                    <div class="col-md-3 col-sm-6" style="margin-top:50px; margin-bottom:50px">
+                        <div class="product-grid">
+                            <div class="product-image">
+                                <a href="#" class="image">
+                                    <img src="<?php echo $rproduct['gbr_produk']?>">
+                                </a>
+                                <a href="" class="add-to-cart" style="text-decoration:none">Beli Produk</a>
+                            </div>
+                            <div class="product-content">
+                                <h3 class="title"
+                                    style="overflow: hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical;">
+                                    <a href="#" style="text-decoration:none"><?php echo $rproduct['judul_produk']?></a></h3>
+                                <div class="price"><?php echo $rproduct['dsc_produk']?>
+                                    <span><?php echo $rproduct['harga_produk']?></span></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="product-content">
-                        <h3 class="title"
-                            style="overflow: hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical;">
-                            <a href="#" style="text-decoration:none"><?php echo $rproduct['judul_produk']?></a></h3>
-                        <div class="price"><?php echo $rproduct['dsc_produk']?>
-                            <span><?php echo $rproduct['harga_produk']?></span></div>
-                    </div>
-                </div>
-            </div>
 
-            <?php
-    endwhile
-    ?>
+                    <?php
+            endwhile
+            ?>
 
         </div>
     </div>
