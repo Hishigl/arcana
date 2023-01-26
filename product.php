@@ -21,10 +21,10 @@
                         <a href="#" class="image">
                             <img src="<?php echo $rproduct['gbr_produk']?>">
                         </a>
-                        <a href="" class="add-to-cart">Add to Cart</a>
+                        <a href="" class="add-to-cart" style="text-decoration:none">Add to Cart</a>
                     </div>
                     <div class="product-content">
-                        <h3 class="title" style="overflow: hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical;"><a href="#"><?php echo $rproduct['judul_produk']?></a></h3>
+                        <h3 class="title" style="overflow: hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical;"><a href="#" style="text-decoration:none"><?php echo $rproduct['judul_produk']?></a></h3>
                         <div class="price"><?php echo $rproduct['dsc_produk']?> <span><?php echo $rproduct['harga_produk']?></span></div>
                     </div>
                 </div>

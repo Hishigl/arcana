@@ -42,7 +42,10 @@ switch (isset($_GET['act'])) {
       }
 
       // print_r($arkondisitext);
-  // -------- perhitungan certainty factor (CF) ---------
+      
+
+  
+      // -------- perhitungan certainty factor (CF) ---------
   // --------------------- START ------------------------
       $sqltipewajah = mysqli_query($conn, "SELECT * FROM tipewajah order by kode_tipewajah");
       $artipewajah = array();
@@ -150,14 +153,14 @@ switch (isset($_GET['act'])) {
       }
       echo "</div></div>
 		  </div>";
-    } else {
+      } else {
       echo "
         <h1 class='text text-primary'>Diagnosa Tipe Kulit Wajah</h1>  <hr>
         <div class='alert alert-success alert-dismissible'>
                       <h4><i class='icon fa fa-exclamation-triangle'></i>Perhatian !</h4>
                       Silahkan memilih gejala sesuai dengan kondisi kulit wajah anda, anda dapat memilih tingkat kepastian kondisi kulit wajah anda dari pasti tidak sampai pasti ya, jika sudah tekan tombol proses (<i class='fa fa-search-plus'></i>)  di bawah untuk melihat hasil.
                     </div>
-          <form name=text_form method=POST action='check.php' >
+          <form name=text_form method=POST action='check.php' > 
                 <table class='table table-bordered table-striped konsultasi'><tbody class='pilihkondisi'>
                 <tr><th>No</th><th>Gejala</th><th width='20%'>Pilih Kondisi</th></tr>";
 
@@ -178,20 +181,23 @@ switch (isset($_GET['act'])) {
         }
         echo '</select></td>';
         ?>
-        <script type="text/javascript">
+        <script type="application/javascript">
           $(document).ready(function () {
             var arcolor = new Array('#000','#FF0000', ' #FF6100', '#FFBA52', '#FFD21C', '#A4F804', '#21A258', ' #FDCD01');
             setColor();
-            $('.pilihkondisi').on('change', 'tr td select#sl<?php echo $i; ?>', function () {
+            $('.pilihkondisi').on('change', 'tr td select#sl<?php echo $i; ?>', function() {
               setColor();
             });
             function setColor()
             {
               var selectedItem = $('tr td select#sl<?php echo $i; ?> :selected');
               var color = arcolor[selectedItem.data("id")];
-              $('tr td select#sl<?php echo $i; ?>.opsikondisi').css('background-color', color);
+              $("tr td select#sl<?php echo $i; ?>.opsikondisi").css('background-color', color);
               console.log(color);
             }
+            if (selectedItem == null) {
+        toast("You need to choose an item form the list first")
+    }
           });
         </script>
         <?php
@@ -212,9 +218,8 @@ switch (isset($_GET['act'])) {
     padding: 5px;
     border-radius: 0.4em;
     border: 1px solid #ddd;
-    /* background-color:#cccccc */
+    background-color:#cccccc
   }
-
 
   select option {
     margin: 40px;
@@ -246,7 +251,6 @@ switch (isset($_GET['act'])) {
   select option[data-id="7"] {   
     background-color: #FDCD01;
   }
-
 
   select:disabled {
       background-color: #cccccc;
