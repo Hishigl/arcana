@@ -82,4 +82,9 @@
     a{
         text-decoration:none;
     }
+
+        body {
+        font-family: 'Rowdies'
+    }
+
 </style>
