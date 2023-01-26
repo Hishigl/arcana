@@ -24,7 +24,7 @@
                         <a href="" class="add-to-cart">Add to Cart</a>
                     </div>
                     <div class="product-content">
-                        <h3 class="title"><a href="#"><?php echo $rproduct['judul_produk']?></a></h3>
+                        <h3 class="title" style="overflow: hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical;"><a href="#"><?php echo $rproduct['judul_produk']?></a></h3>
                         <div class="price"><?php echo $rproduct['dsc_produk']?> <span><?php echo $rproduct['harga_produk']?></span></div>
                     </div>
                 </div>
@@ -93,8 +93,9 @@
     background: #333;
 }
 .product-grid .add-to-cart{
-    background: #A5BA8D;
-    color: #fff;
+    /* background: #A5BA8D; */
+    background-color: #FFA46C;
+    color : white
     font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 2px;
