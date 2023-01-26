@@ -111,7 +111,7 @@
                     // --------------------- END -------------------------
 
                     echo "<div class='content'>
-                    <h2 class='text text-primary'>Hasil Diagnosis &nbsp;&nbsp;<button id='print' onClick='window.print();' data-toggle='tooltip' data-placement='right' title='Klik tombol ini untuk mencetak hasil diagnosa'><i class='fa fa-print'></i> Cetak</button> </h2>
+                    <h2 class='text text-primary' style='margin-top:10px'>Hasil Diagnosis</h2>
                             <hr><table class='table table-bordered table-striped check.php'> 
                         <th width=8%>No</th>
                         <th>Gejala yang dialami (keluhan)</th>
@@ -141,8 +141,9 @@
                     } else {
                         $gambar = 'asset/img/noimage.png';
                     }
-                    echo "</table><div class='well well-small'><img class='card-img-top img-bordered-sm' style='float:right; margin-left:15px; width:400px; margin-right:100px; margin-top:50px; margin-bottom:50px' src='" . $gambar . "'><h1>Hasil Diagnosa</h1>";
-                    echo "<div class='callout callout-default' >Jenis Tipe kulit wajah yang dimiliki dalah <b><h3 class='text text-success'>" . $nmpkt[1] . "</b> / " . round($vlpkt[1], 4)*100 . "%<br></h3>";
+                    echo "</table><div class='well well-small'><h1 style='text-align:center'>Hasil Diagnosa</h1>";
+                    echo "<div class='callout callout-default'style='text-align:center'>Jenis Tipe kulit wajah yang dimiliki dalah <b><h3 style='text-align:center'class='text text-success'>" . $nmpkt[1] . "</b> / " . round($vlpkt[1], 4)*100 . "%<br></h3>";
+                    echo"<img class='card-img-top img-bordered-sm' style='float:center; margin-left:15px; width:450px; margin-top:10px; margin-bottom:40px' src='" . $gambar . "'>";
                     echo "</div></div><div class='box box-info box-solid'><div class='box-header with-border'><h3 class='box-title'>Detail</h3></div><div class='box-body'><h4>";
                     echo $ardpkt[$idpkt[1]];
                     echo "</h4></div></div>
@@ -155,6 +156,7 @@
                     }
                     echo "</div></div>
                     </div>";
+                    echo"<button class='float' id='print' onClick='window.print();' data-toggle='tooltip' data-placement='right' title='Klik tombol ini untuk mencetak hasil diagnosa'><i class='fa fa-print'></i> Cetak</button>";
                 } else {
                     echo "
                         <h1 class='text text-primary'>Diagnosa Tipe Kulit Wajah</h1>  <hr>
@@ -279,11 +281,12 @@ select option[data-id= "7"] {
             height: 60px;
             bottom: 40px;
             right: 40px;
-            background-color: #0C9;
+            background-color: #FF4D00;
             color: #FFF;
             border-radius: 50px;
             text-align: center;
-            box-shadow: 2px 2px 3px #999;
+            box-shadow: 2px 2px 3px #FF4D00;
+            border-color: #FF4D00
 }
 
 .my-float {
