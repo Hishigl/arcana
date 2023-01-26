@@ -95,8 +95,9 @@
 .product-grid .add-to-cart{
     /* background: #A5BA8D; */
     background-color: #FFA46C;
-    color : white
+    color : black;
     font-size: 16px;
+    font-weight:bold;
     text-transform: uppercase;
     letter-spacing: 2px;
     width: 100%;
@@ -123,7 +124,7 @@
     color: #777;
     transition: all 0.3s ease 0s;
 }
-.product-grid .title a:hover{ color: #a5ba8d; }
+.product-grid .title a:hover{ color: #FF914D; }
 .product-grid .price{
     color: #0d0d0d;
     font-size: 14px;
