@@ -11,7 +11,7 @@
 
 <body>
     <div class="container">
-        <div class="row" style="margin-top:50px">
+        <div class="row" style="margin-top:50px; margin-bottom:50px">
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="2000">
@@ -44,7 +44,7 @@
                 $sqlproduct = mysqli_query($conn, "SELECT * FROM produk order by id_product+1");
             while ($rproduct = mysqli_fetch_array($sqlproduct)):
                 ?>
-                    <div class="col-md-3 col-sm-6" style="margin-top:50px; margin-bottom:50px">
+                    <div class="col-md-3 col-sm-6" style="margin-bottom:50px">
                         <div class="product-grid">
                             <div class="product-image">
                                 <a href="#" class="image">
@@ -54,7 +54,7 @@
                             </div>
                             <div class="product-content">
                                 <h3 class="title"
-                                    style="overflow: hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical;">
+                                    style="overflow: hidden; text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical;">
                                     <a href="#" style="text-decoration:none"><?php echo $rproduct['judul_produk']?></a></h3>
                                 <div class="price"><?php echo $rproduct['dsc_produk']?>
                                     <span><?php echo $rproduct['harga_produk']?></span></div>
