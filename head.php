@@ -8,4 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@500;600;700&family=Battambang:wght@700&family=Rowdies:wght@300&display=swap" rel="stylesheet">
+      <link rel="shortcut icon" type="image/x-icon" href="asset/img/logo.png" />
+
 </head>

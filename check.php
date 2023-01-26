@@ -6,6 +6,10 @@
 <?php include 'navbar.php';?>
 <?php include 'dbconnect.php';?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 
 <div class="container">
     <?php
@@ -156,7 +160,7 @@
                         <h1 class='text text-primary'>Diagnosa Tipe Kulit Wajah</h1>  <hr>
                         <div class='alert alert-success alert-dismissible'>
                                     <h4><i class='icon fa fa-exclamation-triangle'></i>Perhatian !</h4>
-                                    Silahkan memilih gejala sesuai dengan kondisi kulit wajah anda, anda dapat memilih tingkat kepastian kondisi kulit wajah anda dari pasti tidak sampai pasti ya, jika sudah tekan tombol proses (<i class='fa fa-search-plus'></i>)  di bawah untuk melihat hasil.
+                                    Silahkan memilih gejala sesuai dengan kondisi yang anda alami. Jika sudah tekan tombol proses (<i class='fa fa-search'></i>)  di bawah untuk melihat hasil.
                                     </div>
                         <form name=text_form method=POST action='check.php' > 
                                 <table class='table table-bordered table-striped konsultasi'><tbody class='pilihkondisi'>
@@ -200,7 +204,7 @@
                             echo "</tr>";
                                     }
                                     echo "
-                                            <input class='float' type=submit data-toggle='tooltip' data-placement='top' title='Klik disini untuk melihat hasil diagnosa' name=submit value='&#xf00e;' style='font-family:Arial, FontAwesome'>
+                                            <input class='float' type=submit data-toggle='tooltip' data-placement='top' title='Klik disini untuk melihat hasil diagnosa' name=submit value='&#xf002;' style='font-family:Arial, FontAwesome' >
                                             </tbody></table></form>";
                                 }
                                 break;
