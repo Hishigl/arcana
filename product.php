@@ -16,13 +16,13 @@
         $sqlproduct = mysqli_query($conn, "SELECT * FROM produk order by id_product+1");
     while ($rproduct = mysqli_fetch_array($sqlproduct)):
         ?>
-            <div class="col-md-3 col-sm-6" style="margin-top:30px">
+            <div class="col-md-3 col-sm-6" style="margin-top:50px">
                 <div class="product-grid">
                     <div class="product-image">
                         <a href="#" class="image">
                             <img src="<?php echo $rproduct['gbr_produk']?>">
                         </a>
-                        <a href="" class="add-to-cart" style="text-decoration:none">Add to Cart</a>
+                        <a href="" class="add-to-cart" style="text-decoration:none">Beli Produk</a>
                     </div>
                     <div class="product-content">
                         <h3 class="title"
