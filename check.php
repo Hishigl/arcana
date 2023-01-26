@@ -45,9 +45,7 @@
 
                     // print_r($arkondisitext);
 
-
-
-                    // -------- perhitungan certainty factor (CF) ---------
+                     // -------- perhitungan (CF) ---------
                     // --------------------- START ------------------------
                     $sqltipewajah = mysqli_query($conn, "SELECT * FROM tipewajah order by kode_tipewajah");
                     $artipewajah = array();
@@ -111,7 +109,7 @@
                     // --------------------- END -------------------------
 
                     echo "<div class='content'>
-                    <h2 class='text text-primary' style='margin-top:10px'>Hasil Diagnosis</h2>
+                    <h2 class='text text-primary' style='margin-top:20px'>Hasil Diagnosis</h2>
                             <hr><table class='table table-bordered table-striped check.php'> 
                         <th width=8%>No</th>
                         <th>Gejala yang dialami (keluhan)</th>
@@ -159,10 +157,10 @@
                     echo"<button class='float' id='print' onClick='window.print();' data-toggle='tooltip' data-placement='right' title='Klik tombol ini untuk mencetak hasil diagnosa'><i class='fa fa-print'></i> Cetak</button>";
                 } else {
                     echo "
-                        <h1 class='text text-primary'>Diagnosa Tipe Kulit Wajah</h1>  <hr>
+                        <h1 class='text text-primary' style='margin-top:20px'>Diagnosa Tipe Kulit Wajah</h1>  <hr>
                         <div class='alert alert-success alert-dismissible'>
                                     <h4><i class='icon fa fa-exclamation-triangle'></i>Perhatian !</h4>
-                                    Silahkan memilih gejala sesuai dengan kondisi yang anda alami. Jika sudah tekan tombol proses (<i class='fa fa-search'></i>)  di bawah untuk melihat hasil.
+                                    Silahkan memilih gejala sesuai dengan kondisi yang anda alami. Jika sudah tekan tombol proses (<i class='fa fa-search'></i>)  di bawah untuk melihat hasil.<br><span style='color:red'>Harap Memilih Lebih Dari 3 Kondisi !</span>
                                     </div>
                         <form name=text_form method=POST action='check.php' > 
                                 <table class='table table-bordered table-striped konsultasi'><tbody class='pilihkondisi'>
@@ -214,6 +212,7 @@
                 ?>
         </div>
 </html>
+
 <style>
         select {
             padding: 5px;

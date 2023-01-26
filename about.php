@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 style="text-align:center; margin-top:50px">About Us</h1>
+        <h1 style="text-align:center; margin-top:30px">About Us</h1>
         <div class="row" >
             <!-- Team item-->
             <div class="col-lg-4"style="display:flex; justify-content:center; text-align: center">
